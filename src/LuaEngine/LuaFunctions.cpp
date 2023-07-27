@@ -551,6 +551,7 @@ ElunaRegister<Player> PlayerMethods[] =
     { "AdvanceSkill", &LuaPlayer::AdvanceSkill },
     { "AdvanceAllSkills", &LuaPlayer::AdvanceAllSkills },
     { "AddLifetimeKills", &LuaPlayer::AddLifetimeKills },
+    { "ApplySpellPowerBonus", &LuaPlayer::ApplySpellPowerBonus },
     { "SetCoinage", &LuaPlayer::SetCoinage },
 #ifndef CLASSIC
     { "SetKnownTitle", &LuaPlayer::SetKnownTitle },
