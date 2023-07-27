@@ -1616,7 +1616,7 @@ namespace LuaUnit
      * @param float amount
      * @param bool apply = true
      */
-    bool HandleStatModifier(lua_State* L, Unit* unit)
+    int HandleStatModifier(lua_State* L, Unit* unit)
     {
         uint32 unitMods = Eluna::CHECKVAL<uint32>(L, 2);
         uint32 unitModifierType = Eluna::CHECKVAL<uint32>(L, 3);
