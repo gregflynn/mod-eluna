@@ -1570,6 +1570,62 @@ namespace LuaUnit
     }
 
     /**
+     * Modifies the units stats
+     *
+     * <pre>
+     * enum UnitMods
+     * {
+     *     UNIT_MOD_STAT_STRENGTH,                                 // UNIT_MOD_STAT_STRENGTH..UNIT_MOD_STAT_SPIRIT must be in existed order, it's accessed by index values of Stats enum.
+     *     UNIT_MOD_STAT_AGILITY,
+     *     UNIT_MOD_STAT_STAMINA,
+     *     UNIT_MOD_STAT_INTELLECT,
+     *     UNIT_MOD_STAT_SPIRIT,
+     *     UNIT_MOD_HEALTH,
+     *     UNIT_MOD_MANA,                                          // UNIT_MOD_MANA..UNIT_MOD_RUNIC_POWER must be in existed order, it's accessed by index values of Powers enum.
+     *     UNIT_MOD_RAGE,
+     *     UNIT_MOD_FOCUS,
+     *     UNIT_MOD_ENERGY,
+     *     UNIT_MOD_HAPPINESS,
+     *     UNIT_MOD_RUNE,
+     *     UNIT_MOD_RUNIC_POWER,
+     *     UNIT_MOD_ARMOR,                                         // UNIT_MOD_ARMOR..UNIT_MOD_RESISTANCE_ARCANE must be in existed order, it's accessed by index values of SpellSchools enum.
+     *     UNIT_MOD_RESISTANCE_HOLY,
+     *     UNIT_MOD_RESISTANCE_FIRE,
+     *     UNIT_MOD_RESISTANCE_NATURE,
+     *     UNIT_MOD_RESISTANCE_FROST,
+     *     UNIT_MOD_RESISTANCE_SHADOW,
+     *     UNIT_MOD_RESISTANCE_ARCANE,
+     *     UNIT_MOD_ATTACK_POWER,
+     *     UNIT_MOD_ATTACK_POWER_RANGED,
+     *     UNIT_MOD_DAMAGE_MAINHAND,
+     *     UNIT_MOD_DAMAGE_OFFHAND,
+     *     UNIT_MOD_DAMAGE_RANGED,
+     *     UNIT_MOD_END,
+     * };
+     * enum UnitModifierType
+     * {
+     *     BASE_VALUE = 0,
+     *     BASE_PCT = 1,
+     *     TOTAL_VALUE = 2,
+     *     TOTAL_PCT = 3,
+     *     MODIFIER_TYPE_END = 4
+     * };
+     * </pre>
+     * @param [UnitMods] unitMods
+     * @param [UnitModifierType] unitModifierType
+     * @param float amount
+     * @param bool apply = true
+     */
+    bool HandleStatModifier(lua_State* L, Unit* unit)
+    {
+        uint32 unitMods = Eluna::CHECKVAL<uint32>(L, 2);
+        uint32 unitModifierType = Eluna::CHECKVAL<uint32>(L, 3);
+        float amount = Eluna::CHECKVAL<float>(L, 4);
+        bool apply = Eluna::CHECKVAL<bool>(L, 5, true);
+        return unit->HandleStatModifier(unitMods, unitModifierType, amount, apply);
+    }
+
+    /**
      * Sets the [Unit]'s faction.
      *
      * @param uint32 faction : new faction ID

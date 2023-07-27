@@ -315,6 +315,7 @@ ElunaRegister<Unit> UnitMethods[] =
     { "GetAttackers", &LuaUnit::GetAttackers },
 
     // Setters
+    { "HandleStatModifier", &LuaUnit::HandleStatModifier },
     { "SetFaction", &LuaUnit::SetFaction },
     { "SetLevel", &LuaUnit::SetLevel },
     { "SetHealth", &LuaUnit::SetHealth },
