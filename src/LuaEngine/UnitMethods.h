@@ -1622,7 +1622,7 @@ namespace LuaUnit
         uint32 unitModifierType = Eluna::CHECKVAL<uint32>(L, 3);
         float amount = Eluna::CHECKVAL<float>(L, 4);
         bool apply = Eluna::CHECKVAL<bool>(L, 5, true);
-        return unit->HandleStatModifier(unitMods, unitModifierType, amount, apply);
+        return unit->HandleStatModifier(UnitMods(unitMods), UnitModifierType(unitModifierType), amount, apply);
     }
 
     /**
